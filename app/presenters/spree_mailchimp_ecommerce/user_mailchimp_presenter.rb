@@ -21,11 +21,11 @@ module SpreeMailchimpEcommerce
     private
 
     def firstname
-      user.try(:firstname) || user&.bill_address&.firstname || "unknown firstname"
+      user.try(:firstname) || user.try(:first_name) || user&.bill_address&.firstname || 'unknown firstname'
     end
 
     def lastname
-      user.try(:lastname) || user&.bill_address&.lastname || "unknown lastname"
+      user.try(:lastname) || user.try(:last_name) || user&.bill_address&.lastname || 'unknown lastname'
     end
 
     def address
